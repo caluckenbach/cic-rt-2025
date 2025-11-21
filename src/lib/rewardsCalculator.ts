@@ -75,15 +75,6 @@ function calculateTaxSavingsForBenefit(
 	}
 }
 
-// Mask currency values based on privacy setting
-function maskCurrencyValue(
-	value: number | null,
-	isPrivate: boolean,
-): number | null {
-	if (isPrivate) return null;
-	return value;
-}
-
 // Calculate percentage difference from base salary
 function calculateTransparencyMessage(
 	totalComp: number,
@@ -160,19 +151,18 @@ export async function calculateTotalRewards(
 			user.baseSalary,
 		);
 
-		// Apply privacy masking if needed
 		const result: TotalRewardsSummary = {
 			userId: user.userId,
 			currency: user.currency,
 			visualBreakdown: {
-				baseSalary: maskCurrencyValue(user.baseSalary, isPrivate),
-				cashBonus: maskCurrencyValue(user.fixedBonus, isPrivate),
-				employerPension: maskCurrencyValue(employerPension, isPrivate),
-				benefitsValue: maskCurrencyValue(benefitsValue, isPrivate),
-				taxSavings: maskCurrencyValue(taxSavings, isPrivate),
+				baseSalary: user.baseSalary,
+				cashBonus: user.fixedBonus,
+				employerPension: employerPension,
+				benefitsValue: benefitsValue,
+				taxSavings: taxSavings,
 			},
-			totalMonthlyComp: maskCurrencyValue(totalMonthlyComp, isPrivate),
-			ytdTotal: maskCurrencyValue(ytdTotal, isPrivate),
+			totalMonthlyComp: totalMonthlyComp,
+			ytdTotal: ytdTotal,
 			transparencyMessage,
 		};
 

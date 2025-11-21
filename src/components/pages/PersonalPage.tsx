@@ -54,10 +54,6 @@ function formatCurrencyValue(
 	value: number | null | undefined,
 	currency: string,
 ) {
-	if (value === null || value === undefined) {
-		return "Hidden for privacy";
-	}
-
 	return new Intl.NumberFormat("en-US", {
 		style: "currency",
 		currency,
@@ -106,12 +102,6 @@ export function PersonalPage() {
 	}, []);
 
 	const currency = summary?.currency ?? "EUR";
-	const privacyModeEnabled = useMemo(() => {
-		if (!summary) return false;
-		return Object.values(summary.visualBreakdown).every(
-			(value) => value === null,
-		);
-	}, [summary]);
 
 	return (
 		<div className="space-y-8">
@@ -132,12 +122,6 @@ export function PersonalPage() {
 						</CardDescription>
 					</div>
 					<div className="flex flex-col gap-3 text-sm text-brand-navy/70">
-						<div className="flex items-center gap-2">
-							<ShieldCheck className="size-4 text-brand-azure" />
-							{privacyModeEnabled
-								? "Privacy mode currently hides amounts"
-								: "Values are visible only to you"}
-						</div>
 						<div className="flex gap-2">
 							<Badge className="border-brand-navy/15 bg-brand-fog/60 text-brand-navy/70">
 								Auto-refresh every 24h
@@ -233,11 +217,6 @@ export function PersonalPage() {
 								<p className="text-2xl font-semibold text-brand-navy">
 									{loading ? "…" : formatCurrencyValue(value, currency)}
 								</p>
-								{value === null && !loading && (
-									<p className="text-xs text-brand-navy/60">
-										Toggle privacy mode off to reveal.
-									</p>
-								)}
 							</CardContent>
 						</Card>
 					);

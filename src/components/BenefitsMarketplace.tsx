@@ -354,14 +354,25 @@ export function BenefitsMarketplace() {
 					</div>
 				)}
 				<Tabs defaultValue="available" className="w-full">
-					<TabsList className="grid w-full grid-cols-3">
-						<TabsTrigger value="available">
+					<TabsList className="flex w-full flex-col gap-2 rounded-2xl bg-brand-fog/60 p-2 sm:grid sm:grid-cols-3 sm:gap-0">
+						<TabsTrigger
+							value="available"
+							className="w-full rounded-xl text-sm font-semibold uppercase tracking-wide"
+						>
 							Available ({available.length})
 						</TabsTrigger>
-						<TabsTrigger value="requested">
+						<TabsTrigger
+							value="requested"
+							className="w-full rounded-xl text-sm font-semibold uppercase tracking-wide"
+						>
 							Pending ({requested.length})
 						</TabsTrigger>
-						<TabsTrigger value="active">Active ({active.length})</TabsTrigger>
+						<TabsTrigger
+							value="active"
+							className="w-full rounded-xl text-sm font-semibold uppercase tracking-wide"
+						>
+							Active ({active.length})
+						</TabsTrigger>
 					</TabsList>
 
 					<TabsContent value="available" className="mt-6">

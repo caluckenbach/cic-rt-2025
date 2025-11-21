@@ -47,7 +47,7 @@ const newsItems: NewsItem[] = [
 		id: "news-2",
 		title: "Leaders all-hands slides are ready",
 		summary:
-			"Liz posted the final deck for Thursday’s 30-minute all-hands. Includes FY24 results, the FY25 rewards roadmap, and a short preview of the new privacy-first reveal mode.",
+			"Liz posted the final deck for Thursday’s 30-minute all-hands. Includes FY24 results, the FY25 rewards roadmap.",
 		channel: "Leadership · Company",
 		tags: ["All Hands", "Deck", "Preview"],
 		publishedAt: "6h ago",

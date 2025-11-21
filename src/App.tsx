@@ -57,7 +57,7 @@ export function App() {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-brand-fog via-white to-brand-fog/70 text-left">
 			<header className="border-b bg-gradient-to-r from-brand-teal via-brand-azure via-70% to-brand-navy text-white shadow-lg">
-				<div className="container flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+				<div className="app-shell flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
 					<div className="flex flex-col gap-4">
 						<img
 							src={artivionLogo}
@@ -81,20 +81,12 @@ export function App() {
 							</div>
 						</div>
 					</div>
-					<Button
-						variant="outline"
-						size="sm"
-						className="gap-2 border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white"
-					>
-						<EyeOff className="size-4" />
-						Privacy Mode (coming soon)
-					</Button>
 				</div>
 			</header>
 
-			<div className="container flex flex-col gap-8 py-10 lg:flex-row">
-				<nav className="lg:w-80">
-					<div className="sticky top-8 rounded-3xl border border-brand-navy/15 bg-white/80 p-5 shadow-xl shadow-brand-navy/5 backdrop-blur">
+			<div className="app-shell flex flex-col gap-8 py-10 lg:flex-row lg:items-start lg:gap-12">
+				<nav className="w-full lg:w-80">
+					<div className="rounded-3xl border border-brand-navy/15 bg-white/80 p-5 shadow-xl shadow-brand-navy/5 backdrop-blur lg:sticky lg:top-8">
 						<p className="text-xs uppercase tracking-[0.35em] text-brand-navy/60">
 							Navigation
 						</p>
@@ -105,7 +97,7 @@ export function App() {
 									<Button
 										key={page.id}
 										variant={isActive ? "secondary" : "ghost"}
-										className={`justify-start gap-4 rounded-2xl px-4 py-4 text-left ${
+										className={`w-full justify-start gap-4 rounded-2xl px-4 py-4 text-left ${
 											isActive
 												? "bg-brand-lime text-brand-navy hover:bg-brand-lime/90"
 												: "text-brand-navy hover:bg-brand-lime/20"
@@ -138,7 +130,7 @@ export function App() {
 					</div>
 				</nav>
 
-				<main className="flex-1 space-y-10">{ActivePage}</main>
+				<main className="flex-1 space-y-8 sm:space-y-10">{ActivePage}</main>
 			</div>
 		</div>
 	);
