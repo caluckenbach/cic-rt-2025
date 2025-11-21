@@ -1,43 +1,43 @@
 [
-  {
-    "id": "ben_bike",
-    "category": "Mobility",
-    "name": "BusinessBike",
-    "status": "AVAILABLE",
-    "simulationConfig": {
-      "hasCalculator": true,
-      "formula": "(price * 0.036) * 0.6"
-    }
-  },
-  {
-    "id": "ben_gym",
-    "category": "Health",
-    "name": "WellPass",
-    "status": "ACTIVE",
-    "fixedValue": 50.00
-  },
-  {
-    "id": "ben_car",
-    "category": "Mobility",
-    "name": "CompanyCar",
-    "status": "AVAILABLE",
-    "simulationConfig": {
-      "hasCalculator": true,
-      "formula": "(price * 0.01) * 0.6"
-    }
-  },
-  {
-    "id": "ben_childcare",
-    "category": "Family",
-    "name": "Childcare Support",
-    "status": "AVAILABLE",
-    "fixedValue": 300.00
-  },
-  {
-    "id": "ben_pension",
-    "category": "Finance",
-    "name": "Additional Pension",
-    "status": "AVAILABLE",
-    "fixedValue": 200.00
-  }
+	{
+		"id": "ben_bike",
+		"category": "Mobility",
+		"name": "BusinessBike",
+		"status": "AVAILABLE",
+		"simulationConfig": {
+			"hasCalculator": true,
+			"formula": "(price * 0.036) * 0.6"
+		}
+	},
+	{
+		"id": "ben_gym",
+		"category": "Health",
+		"name": "WellPass",
+		"status": "ACTIVE",
+		"fixedValue": 50.0
+	},
+	{
+		"id": "ben_car",
+		"category": "Mobility",
+		"name": "CompanyCar",
+		"status": "AVAILABLE",
+		"simulationConfig": {
+			"hasCalculator": true,
+			"formula": "(price * 0.01) * 0.6"
+		}
+	},
+	{
+		"id": "ben_childcare",
+		"category": "Family",
+		"name": "Childcare Support",
+		"status": "AVAILABLE",
+		"fixedValue": 300.0
+	},
+	{
+		"id": "ben_pension",
+		"category": "Finance",
+		"name": "Additional Pension",
+		"status": "AVAILABLE",
+		"fixedValue": 200.0
+	}
 ]

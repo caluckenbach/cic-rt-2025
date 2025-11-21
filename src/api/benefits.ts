@@ -1,8 +1,8 @@
 export {
-  getBenefitsCatalogAPI as getBenefitsCatalog,
-  getUserBenefitAPI as getUserBenefit,
-  requestBenefitAPI as requestBenefit,
-  activateBenefitAPI as activateBenefit,
-  simulateBenefitAPI as simulateBenefit,
-  getActiveBenefitsSummary,
+	activateBenefitAPI as activateBenefit,
+	getActiveBenefitsSummary,
+	getBenefitsCatalogAPI as getBenefitsCatalog,
+	getUserBenefitAPI as getUserBenefit,
+	requestBenefitAPI as requestBenefit,
+	simulateBenefitAPI as simulateBenefit,
 } from "./benefitsMock";

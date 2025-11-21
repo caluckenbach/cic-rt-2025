@@ -1,23 +1,23 @@
 [
-  {
-    "userId": "12345",
-    "baseSalary": 4500,
-    "fixedBonus": 200,
-    "currency": "EUR",
-    "isPrivate": false
-  },
-  {
-    "userId": "67890",
-    "baseSalary": 5200,
-    "fixedBonus": 300,
-    "currency": "EUR",
-    "isPrivate": true
-  },
-  {
-    "userId": "11111",
-    "baseSalary": 3800,
-    "fixedBonus": 150,
-    "currency": "EUR",
-    "isPrivate": false
-  }
+	{
+		"userId": "12345",
+		"baseSalary": 4500,
+		"fixedBonus": 200,
+		"currency": "EUR",
+		"isPrivate": false
+	},
+	{
+		"userId": "67890",
+		"baseSalary": 5200,
+		"fixedBonus": 300,
+		"currency": "EUR",
+		"isPrivate": true
+	},
+	{
+		"userId": "11111",
+		"baseSalary": 3800,
+		"fixedBonus": 150,
+		"currency": "EUR",
+		"isPrivate": false
+	}
 ]

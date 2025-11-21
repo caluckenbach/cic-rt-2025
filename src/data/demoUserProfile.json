@@ -1,9 +1,9 @@
 [
-  {
-    "userId": "orbit-demo-user",
-    "baseSalary": 5200,
-    "fixedBonus": 350,
-    "currency": "EUR",
-    "isPrivate": false
-  }
+	{
+		"userId": "orbit-demo-user",
+		"baseSalary": 5200,
+		"fixedBonus": 350,
+		"currency": "EUR",
+		"isPrivate": false
+	}
 ]

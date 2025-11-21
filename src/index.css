@@ -1,11 +1,11 @@
 @import "../styles/globals.css";
 
 @layer base {
-  :root {
-    @apply font-sans;
-  }
+	:root {
+		@apply font-sans;
+	}
 
-  body {
-    @apply min-h-screen bg-background text-foreground antialiased;
-  }
+	body {
+		@apply min-h-screen bg-background text-foreground antialiased;
+	}
 }

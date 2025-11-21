@@ -1,85 +1,85 @@
 [
-  {
-    "userId": "12345",
-    "benefitType": "pension",
-    "name": "Employer Pension Contribution",
-    "value": 150,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "tax_free",
-      "description": "Tax-free pension contribution"
-    }
-  },
-  {
-    "userId": "12345",
-    "benefitType": "bike_leasing",
-    "name": "Bike Leasing Program",
-    "value": 80,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "salary_sacrifice",
-      "description": "Gross salary reduction with tax savings",
-      "taxRate": 0.42
-    }
-  },
-  {
-    "userId": "12345",
-    "benefitType": "health_insurance",
-    "name": "Private Health Insurance",
-    "value": 90,
-    "isActive": true
-  },
-  {
-    "userId": "67890",
-    "benefitType": "pension",
-    "name": "Employer Pension Contribution",
-    "value": 200,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "tax_free",
-      "description": "Tax-free pension contribution"
-    }
-  },
-  {
-    "userId": "67890",
-    "benefitType": "bike_leasing",
-    "name": "Bike Leasing Program",
-    "value": 80,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "salary_sacrifice",
-      "description": "Gross salary reduction with tax savings",
-      "taxRate": 0.42
-    }
-  },
-  {
-    "userId": "67890",
-    "benefitType": "gym_membership",
-    "name": "Gym Membership",
-    "value": 50,
-    "isActive": true
-  },
-  {
-    "userId": "11111",
-    "benefitType": "pension",
-    "name": "Employer Pension Contribution",
-    "value": 120,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "tax_free",
-      "description": "Tax-free pension contribution"
-    }
-  },
-  {
-    "userId": "11111",
-    "benefitType": "bike_leasing",
-    "name": "Bike Leasing Program",
-    "value": 80,
-    "isActive": true,
-    "taxAdvantage": {
-      "type": "salary_sacrifice",
-      "description": "Gross salary reduction with tax savings",
-      "taxRate": 0.2
-    }
-  }
+	{
+		"userId": "12345",
+		"benefitType": "pension",
+		"name": "Employer Pension Contribution",
+		"value": 150,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "tax_free",
+			"description": "Tax-free pension contribution"
+		}
+	},
+	{
+		"userId": "12345",
+		"benefitType": "bike_leasing",
+		"name": "Bike Leasing Program",
+		"value": 80,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "salary_sacrifice",
+			"description": "Gross salary reduction with tax savings",
+			"taxRate": 0.42
+		}
+	},
+	{
+		"userId": "12345",
+		"benefitType": "health_insurance",
+		"name": "Private Health Insurance",
+		"value": 90,
+		"isActive": true
+	},
+	{
+		"userId": "67890",
+		"benefitType": "pension",
+		"name": "Employer Pension Contribution",
+		"value": 200,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "tax_free",
+			"description": "Tax-free pension contribution"
+		}
+	},
+	{
+		"userId": "67890",
+		"benefitType": "bike_leasing",
+		"name": "Bike Leasing Program",
+		"value": 80,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "salary_sacrifice",
+			"description": "Gross salary reduction with tax savings",
+			"taxRate": 0.42
+		}
+	},
+	{
+		"userId": "67890",
+		"benefitType": "gym_membership",
+		"name": "Gym Membership",
+		"value": 50,
+		"isActive": true
+	},
+	{
+		"userId": "11111",
+		"benefitType": "pension",
+		"name": "Employer Pension Contribution",
+		"value": 120,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "tax_free",
+			"description": "Tax-free pension contribution"
+		}
+	},
+	{
+		"userId": "11111",
+		"benefitType": "bike_leasing",
+		"name": "Bike Leasing Program",
+		"value": 80,
+		"isActive": true,
+		"taxAdvantage": {
+			"type": "salary_sacrifice",
+			"description": "Gross salary reduction with tax savings",
+			"taxRate": 0.2
+		}
+	}
 ]
