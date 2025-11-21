@@ -95,7 +95,7 @@ const sections: Section[] = [
 export function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-brand-fog via-white to-brand-fog/70 text-left">
-      <header className="border-b bg-gradient-to-r from-brand-navy via-brand-azure to-brand-teal text-white shadow-lg">
+      <header className="border-b bg-gradient-to-r from-brand-teal via-brand-azure via-70% to-brand-navy text-white shadow-lg">
         <div className="container flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-4">
             <img
