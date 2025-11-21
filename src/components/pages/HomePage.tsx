@@ -1,3 +1,11 @@
+import {
+	CalendarDays,
+	Clock3,
+	Flame,
+	Megaphone,
+	Newspaper,
+	Sparkles,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,14 +15,6 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import {
-	CalendarDays,
-	Clock3,
-	Flame,
-	Megaphone,
-	Newspaper,
-	Sparkles,
-} from "lucide-react";
 
 type NewsItem = {
 	id: string;

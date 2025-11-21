@@ -1,9 +1,9 @@
+import { EyeOff, Gauge, Megaphone, ShoppingBag } from "lucide-react";
 import { useMemo, useState } from "react";
 import { BenefitsMarketplace } from "@/components/BenefitsMarketplace";
 import { HomePage } from "@/components/pages/HomePage";
 import { PersonalPage } from "@/components/pages/PersonalPage";
 import { Button } from "@/components/ui/button";
-import { EyeOff, Gauge, Megaphone, ShoppingBag } from "lucide-react";
 import "./index.css";
 import artivionLogo from "../assets/Artivion_4C-scaled.png";
 

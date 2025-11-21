@@ -537,7 +537,9 @@ export function BenefitsMarketplace() {
 													onClick={() => cancelBenefit(benefit.id)}
 													disabled={requesting === benefit.id}
 												>
-													{requesting === benefit.id ? "Processing..." : "Cancel"}
+													{requesting === benefit.id
+														? "Processing..."
+														: "Cancel"}
 												</Button>
 											</div>
 										</div>

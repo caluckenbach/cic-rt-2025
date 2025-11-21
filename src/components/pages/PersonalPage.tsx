@@ -1,3 +1,4 @@
+import { CheckCircle2, Gauge, ShieldCheck, Sparkles } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,6 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import type { TotalRewardsSummary } from "@/lib/rewardsCalculator";
-import {
-	CheckCircle2,
-	Gauge,
-	ShieldCheck,
-	Sparkles,
-} from "lucide-react";
 
 type BreakdownField = {
 	key: keyof TotalRewardsSummary["visualBreakdown"];
@@ -205,8 +200,8 @@ export function PersonalPage() {
 							<p className="text-sm text-brand-navy/80">
 								{loading
 									? "Preparing insight..."
-									: summary?.transparencyMessage ??
-										"Link your payroll account to unlock insights"}
+									: (summary?.transparencyMessage ??
+										"Link your payroll account to unlock insights")}
 							</p>
 						</div>
 					</div>
@@ -281,9 +276,7 @@ export function PersonalPage() {
 									</p>
 								</div>
 							</div>
-							<p className="text-sm text-brand-navy/60">
-								{activity.timestamp}
-							</p>
+							<p className="text-sm text-brand-navy/60">{activity.timestamp}</p>
 						</div>
 					))}
 				</CardContent>
