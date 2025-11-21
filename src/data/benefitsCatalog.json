@@ -1,0 +1,95 @@
+[
+  {
+    "id": "benefit_retirement",
+    "category": "Finance",
+    "name": "Altersvorsorge",
+    "status": "ACTIVE",
+    "fixedValue": 350
+  },
+  {
+    "id": "benefit_savings_plan",
+    "category": "Finance",
+    "name": "Vermögenswirksame Leistungen",
+    "status": "ACTIVE",
+    "fixedValue": 40
+  },
+  {
+    "id": "benefit_business_bike",
+    "category": "Mobility",
+    "name": "Business Bike",
+    "status": "AVAILABLE",
+    "hasCalculator": true,
+    "simulationFormula": "(price * 0.036) * 0.6"
+  },
+  {
+    "id": "benefit_corporate_perks",
+    "category": "Finance",
+    "name": "Corporate Benefits",
+    "status": "AVAILABLE",
+    "fixedValue": 60
+  },
+  {
+    "id": "benefit_wellpass",
+    "category": "Health",
+    "name": "Firmenfitness Wellpass",
+    "status": "ACTIVE",
+    "fixedValue": 50
+  },
+  {
+    "id": "benefit_after_work",
+    "category": "Community",
+    "name": "After Work Partys",
+    "status": "AVAILABLE",
+    "fixedValue": 25
+  },
+  {
+    "id": "benefit_events",
+    "category": "Community",
+    "name": "Weihnachtsfeier und Sommerfest",
+    "status": "AVAILABLE",
+    "fixedValue": 20
+  },
+  {
+    "id": "benefit_cafeteria",
+    "category": "Lifestyle",
+    "name": "Kantine & Getränke",
+    "status": "ACTIVE",
+    "fixedValue": 150
+  },
+  {
+    "id": "benefit_eyewear",
+    "category": "Health",
+    "name": "Arbeitsplatzbrille",
+    "status": "AVAILABLE",
+    "fixedValue": 15
+  },
+  {
+    "id": "benefit_espp",
+    "category": "Finance",
+    "name": "Mitarbeiteraktienplan (ESPP)",
+    "status": "AVAILABLE",
+    "fixedValue": 120
+  },
+  {
+    "id": "benefit_paid_leave",
+    "category": "Lifestyle",
+    "name": "30 Tage Urlaub",
+    "status": "ACTIVE",
+    "fixedValue": 0
+  },
+  {
+    "id": "benefit_summer_care",
+    "category": "Family",
+    "name": "Sommerbetreuung für Kinder",
+    "status": "AVAILABLE",
+    "fixedValue": 80
+  },
+  {
+    "id": "benefit_car_leasing",
+    "category": "Mobility",
+    "name": "Motivationsleasing PKW",
+    "status": "AVAILABLE",
+    "hasCalculator": true,
+    "simulationFormula": "(price * 0.015) * 0.55"
+  }
+]

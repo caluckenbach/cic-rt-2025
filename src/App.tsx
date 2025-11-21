@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, EyeOff, Gauge, ShoppingBag, Sparkles, Users } from "lucide-react";
+import { BenefitsMarketplace } from "@/components/BenefitsMarketplace";
 import "./index.css";
 import artivionLogo from "../assets/Artivion_4C-scaled.png";
 
@@ -153,44 +154,48 @@ export function App() {
         <main className="flex-1 space-y-10">
           {sections.map(section => (
             <section id={section.id} key={section.id} className="scroll-mt-32">
-              <Card className="border-brand-navy/10 bg-white/95 shadow-lg shadow-brand-navy/5">
-                <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-2xl bg-brand-azure/10 p-3 text-brand-azure">
-                      <section.icon className="size-5" />
+              {section.id === "benefits-marketplace" ? (
+                <BenefitsMarketplace />
+              ) : (
+                <Card className="border-brand-navy/10 bg-white/95 shadow-lg shadow-brand-navy/5">
+                  <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-2xl bg-brand-azure/10 p-3 text-brand-azure">
+                        <section.icon className="size-5" />
+                      </div>
+                      <div>
+                        <p className="mb-1 inline-flex items-center gap-2 rounded-full bg-brand-lime/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-navy/80">
+                          {section.title === "Total Rewards" ? "Phase Zero" : "In Discovery"}
+                          <span className="inline-flex h-2 w-2 rounded-full bg-brand-teal" />
+                        </p>
+                        <CardTitle className="text-2xl text-brand-navy">{section.title}</CardTitle>
+                        <CardDescription className="text-brand-navy/70">{section.tagline}</CardDescription>
+                      </div>
                     </div>
-                    <div>
-                      <p className="mb-1 inline-flex items-center gap-2 rounded-full bg-brand-lime/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-navy/80">
-                        {section.title === "Total Rewards" ? "Phase Zero" : "In Discovery"}
-                        <span className="inline-flex h-2 w-2 rounded-full bg-brand-teal" />
-                      </p>
-                      <CardTitle className="text-2xl text-brand-navy">{section.title}</CardTitle>
-                      <CardDescription className="text-brand-navy/70">{section.tagline}</CardDescription>
-                    </div>
-                  </div>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="bg-brand-teal text-white shadow-brand-teal/40 hover:bg-brand-teal/90"
-                  >
-                    {section.cta}
-                  </Button>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-brand-navy/80">{section.description}</p>
-                  <ul className="grid gap-3 text-sm sm:grid-cols-2">
-                    {section.highlights.map(item => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-3 rounded-2xl border border-brand-navy/10 bg-brand-fog/60 p-4 text-brand-navy shadow-sm"
-                      >
-                        <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-brand-azure" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="bg-brand-teal text-white shadow-brand-teal/40 hover:bg-brand-teal/90"
+                    >
+                      {section.cta}
+                    </Button>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-brand-navy/80">{section.description}</p>
+                    <ul className="grid gap-3 text-sm sm:grid-cols-2">
+                      {section.highlights.map(item => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-3 rounded-2xl border border-brand-navy/10 bg-brand-fog/60 p-4 text-brand-navy shadow-sm"
+                        >
+                          <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-brand-azure" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )}
             </section>
           ))}
         </main>

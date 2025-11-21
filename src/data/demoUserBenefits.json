@@ -1,0 +1,53 @@
+[
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "pension",
+    "name": "Altersvorsorge",
+    "value": 350,
+    "isActive": true,
+    "taxAdvantage": {
+      "type": "tax_free",
+      "description": "Steuerfreie Arbeitgeberzuschüsse zur Altersvorsorge"
+    }
+  },
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "savings_plan",
+    "name": "Vermögenswirksame Leistungen",
+    "value": 40,
+    "isActive": true
+  },
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "bike_leasing",
+    "name": "Business Bike",
+    "value": 95,
+    "isActive": true,
+    "taxAdvantage": {
+      "type": "salary_sacrifice",
+      "description": "Bruttogehaltsumwandlung mit 40% Steuerersparnis",
+      "taxRate": 0.4
+    }
+  },
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "health_insurance",
+    "name": "Firmenfitness Wellpass",
+    "value": 50,
+    "isActive": true
+  },
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "cafeteria",
+    "name": "Kantine & Getränke",
+    "value": 150,
+    "isActive": true
+  },
+  {
+    "userId": "orbit-demo-user",
+    "benefitType": "espp",
+    "name": "Mitarbeiteraktienplan (ESPP)",
+    "value": 120,
+    "isActive": true
+  }
+]
