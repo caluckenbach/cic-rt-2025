@@ -267,6 +267,39 @@ export function BenefitsMarketplace() {
 		}
 	};
 
+	const cancelBenefit = async (benefitId: string) => {
+		try {
+			setRequesting(benefitId);
+			setError(null);
+			const response = await fetch(`/api/benefits/${benefitId}/cancel`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+			});
+
+			if (!response.ok) {
+				const errorPayload = await response.json();
+				throw new Error(errorPayload.error || "Cancellation failed");
+			}
+
+			const result: UserBenefit = await response.json();
+			// Update local state
+			setBenefits((prev) =>
+				prev.map((b) =>
+					b.id === benefitId ? { ...b, ...result, status: "AVAILABLE" } : b,
+				),
+			);
+
+			console.log("Benefit cancelled successfully:", result);
+		} catch (error) {
+			console.error("Error cancelling benefit:", error);
+			setError(
+				error instanceof Error ? error.message : "Failed to cancel benefit.",
+			);
+		} finally {
+			setRequesting(null);
+		}
+	};
+
 	const categorizedBenefits = useMemo(() => {
 		const available = benefits.filter(
 			(b) => !b.status || b.status === "AVAILABLE",
@@ -486,16 +519,27 @@ export function BenefitsMarketplace() {
 													Estimated Savings: €{benefit.savings.toFixed(2)}
 												</div>
 											)}
-											<Button
-												size="sm"
-												className="w-full"
-												onClick={() => activateBenefit(benefit.id)}
-												disabled={requesting === benefit.id}
-											>
-												{requesting === benefit.id
-													? "Activating..."
-													: "Activate Benefit"}
-											</Button>
+											<div className="flex gap-2">
+												<Button
+													size="sm"
+													className="flex-1"
+													onClick={() => activateBenefit(benefit.id)}
+													disabled={requesting === benefit.id}
+												>
+													{requesting === benefit.id
+														? "Activating..."
+														: "Activate Benefit"}
+												</Button>
+												<Button
+													size="sm"
+													variant="outline"
+													className="flex-1"
+													onClick={() => cancelBenefit(benefit.id)}
+													disabled={requesting === benefit.id}
+												>
+													{requesting === benefit.id ? "Processing..." : "Cancel"}
+												</Button>
+											</div>
 										</div>
 									</CardContent>
 								</Card>

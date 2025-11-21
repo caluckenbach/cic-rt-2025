@@ -1,5 +1,6 @@
 export {
 	activateBenefitAPI as activateBenefit,
+	cancelBenefitAPI as cancelBenefit,
 	getActiveBenefitsSummary,
 	getBenefitsCatalogAPI as getBenefitsCatalog,
 	getUserBenefitAPI as getUserBenefit,

@@ -1,6 +1,7 @@
 import { serve } from "bun";
 import {
 	activateBenefitAPI,
+	cancelBenefitAPI,
 	getActiveBenefitsSummary,
 	getBenefitsCatalogAPI,
 	getUserBenefitAPI,
@@ -86,7 +87,24 @@ const server = serve({
 			},
 		},
 
-		"/api/benefits/:benefitId/simulate": {
+			"/api/benefits/:benefitId/cancel": {
+				async POST(req) {
+					try {
+						const benefitId = req.params.benefitId;
+						const result = await cancelBenefitAPI(DEMO_USER_ID, benefitId);
+						return Response.json(result);
+					} catch (error) {
+						console.error("Error cancelling benefit:", error);
+						const message =
+							error instanceof Error
+								? error.message
+								: "Failed to cancel benefit";
+						return Response.json({ error: message }, { status: 400 });
+					}
+				},
+			},
+
+			"/api/benefits/:benefitId/simulate": {
 			async POST(req) {
 				try {
 					const benefitId = req.params.benefitId;

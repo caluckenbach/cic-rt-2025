@@ -191,3 +191,31 @@ export async function getActiveBenefitsSummary(userId: string) {
 		throw error;
 	}
 }
+// Cancel a benefit request (change status from REQUESTED to AVAILABLE)
+export async function cancelBenefitAPI(userId: string, benefitId: string) {
+	try {
+		const existing = getUserBenefit(userId, benefitId);
+		if (!existing) {
+			throw new Error("Benefit not found");
+		}
+		if (existing.status !== "REQUESTED") {
+			throw new Error("Benefit must be in REQUESTED status to cancel");
+		}
+
+		// Update to AVAILABLE status
+		const userBenefit = upsertUserBenefit(userId, benefitId, {
+			status: "AVAILABLE",
+		});
+
+		// Record the cancellation event
+		recordEvent(benefitId, userBenefit.id, "DEACTIVATED", {
+			previousStatus: "REQUESTED",
+			reason: "Cancelled by user",
+		});
+
+		return userBenefit;
+	} catch (error) {
+		console.error("Error cancelling benefit:", error);
+		throw error;
+	}
+}
