@@ -1,5 +1,6 @@
 import { serve } from "bun";
 import index from "./index.html";
+import { handleGetRewardsSummary } from "./routes/rewards";
 
 const server = serve({
   routes: {
@@ -27,6 +28,10 @@ const server = serve({
         message: `Hello, ${name}!`,
       });
     },
+    
+    "/api/rewards/summary": {
+      GET: handleGetRewardsSummary,
+    }
   },
 
   development: process.env.NODE_ENV !== "production" && {
