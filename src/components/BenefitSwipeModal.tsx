@@ -132,7 +132,7 @@ export function BenefitSwipeModal({
 				<CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 					<div>
 						<CardTitle className="text-2xl text-brand-navy">
-							Benefit Tinder
+							Benefit Explorer
 						</CardTitle>
 						<CardDescription className="text-brand-navy/70">
 							Swipe through eligible benefits and spark new ideas.
