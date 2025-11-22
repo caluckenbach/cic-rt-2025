@@ -339,10 +339,22 @@ export function BenefitsMarketplace() {
 		});
 	}, [available, searchQuery, selectedCategory]);
 
+	const swipeEligible = useMemo(
+		() =>
+			available.filter((benefit) => !benefit.simulationConfig?.hasCalculator),
+		[available],
+	);
+
+	const filteredSwipeEligible = useMemo(
+		() =>
+			filteredAvailableBenefits.filter(
+				(benefit) => !benefit.simulationConfig?.hasCalculator,
+			),
+		[filteredAvailableBenefits],
+	);
+
 	const swipeCandidates =
-		filteredAvailableBenefits.length > 0
-			? filteredAvailableBenefits
-			: available;
+		filteredSwipeEligible.length > 0 ? filteredSwipeEligible : swipeEligible;
 
 	const categories: { value: string; label: string }[] = useMemo(() => {
 		const uniqueCategories = Array.from(
@@ -401,7 +413,16 @@ export function BenefitsMarketplace() {
 						{error}
 					</div>
 				)}
-				<Tabs defaultValue="available" className="w-full">
+				<Button
+					type="button"
+					variant="outline"
+					className="w-full gap-2 border-brand-navy/20 text-brand-navy sm:w-auto"
+					onClick={() => setSwipeOpen(true)}
+				>
+					<Heart className="size-4 text-brand-azure" />
+					Explore Benefits
+				</Button>
+				<Tabs defaultValue="available" className="w-full bg-red-500">
 					<TabsList className="flex w-full flex-col gap-2 rounded-2xl bg-brand-fog/60 p-2 sm:grid sm:grid-cols-3 sm:gap-0">
 						<TabsTrigger
 							value="available"
@@ -474,15 +495,6 @@ export function BenefitsMarketplace() {
 									Showing {filteredAvailableBenefits.length} of{" "}
 									{available.length} benefits
 								</div>
-								<Button
-									type="button"
-									variant="outline"
-									className="w-full gap-2 border-brand-navy/20 text-brand-navy sm:w-auto"
-									onClick={() => setSwipeOpen(true)}
-								>
-									<Heart className="size-4 text-brand-azure" />
-									Benefit Tinder
-								</Button>
 							</div>
 						</div>
 

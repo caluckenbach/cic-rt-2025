@@ -72,9 +72,7 @@ export function App() {
 								<p className="text-xs uppercase tracking-[0.35em] text-white/70">
 									IVI
 								</p>
-								<h1 className="text-3xl font-semibold">
-									Total Rewards Mission Control
-								</h1>
+								<h1 className="text-3xl font-semibold">Hallo, Max.</h1>
 								<p className="text-sm text-white/80">
 									Powered by Artivion&apos;s people-first operating system.
 								</p>
