@@ -6,11 +6,13 @@ import {
 	DollarSign,
 	Heart,
 	PartyPopper,
+	Search,
 	ShoppingBag,
 	Users,
+	X,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import type { BenefitCatalogEntry } from "@/lib/mockData";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { BenefitCatalogEntry, BenefitCategory } from "@/lib/mockData";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import {
@@ -21,6 +23,13 @@ import {
 	CardTitle,
 } from "./ui/card";
 import { Input } from "./ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "./ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 type Benefit = BenefitCatalogEntry & {
@@ -69,6 +78,8 @@ export function BenefitsMarketplace() {
 	const [vehiclePrices, setVehiclePrices] = useState<Record<string, string>>(
 		{},
 	);
+	const [searchQuery, setSearchQuery] = useState("");
+	const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
 	const fetchBenefitsData = useCallback(async () => {
 		setLoading(true);
@@ -311,6 +322,36 @@ export function BenefitsMarketplace() {
 
 	const { available, requested, active } = categorizedBenefits;
 
+	const filteredAvailableBenefits = useMemo(() => {
+		return available.filter((benefit) => {
+			const matchesSearch =
+				benefit.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+				(benefit.description || "")
+					.toLowerCase()
+					.includes(searchQuery.toLowerCase());
+
+			const matchesCategory =
+				selectedCategory === "all" || benefit.category === selectedCategory;
+
+			return matchesSearch && matchesCategory;
+		});
+	}, [available, searchQuery, selectedCategory]);
+
+	const categories: { value: string; label: string }[] = useMemo(() => {
+		const uniqueCategories = Array.from(
+			new Set(benefits.map((b) => b.category)),
+		);
+		return [
+			{ value: "all", label: "All Categories" },
+			...uniqueCategories.map((cat) => ({ value: cat, label: cat })),
+		];
+	}, [benefits]);
+
+	const clearFilters = () => {
+		setSearchQuery("");
+		setSelectedCategory("all");
+	};
+
 	const getStatusBadge = (status?: string) => {
 		switch (status) {
 			case "ACTIVE":
@@ -376,8 +417,58 @@ export function BenefitsMarketplace() {
 					</TabsList>
 
 					<TabsContent value="available" className="mt-6">
+						{/* Search and Filter Controls */}
+						<div className="flex flex-col sm:flex-row gap-3 mb-6">
+							<div className="relative flex-1">
+								<Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+								<Input
+									placeholder="Search benefits by name or description..."
+									value={searchQuery}
+									onChange={(e) => setSearchQuery(e.target.value)}
+									className="pl-9"
+								/>
+								{searchQuery && (
+									<button
+										onClick={() => setSearchQuery("")}
+										className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+									>
+										<X className="h-4 w-4" />
+									</button>
+								)}
+							</div>
+							<Select
+								value={selectedCategory}
+								onValueChange={setSelectedCategory}
+							>
+								<SelectTrigger className="sm:w-[180px]">
+									<SelectValue placeholder="Filter by category" />
+								</SelectTrigger>
+								<SelectContent>
+									{categories.map((category) => (
+										<SelectItem key={category.value} value={category.value}>
+											{category.label}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+							{(searchQuery || selectedCategory !== "all") && (
+								<Button
+									type="button"
+									variant="outline"
+									size="sm"
+									onClick={clearFilters}
+								>
+									Clear
+								</Button>
+							)}
+						</div>
+						<div className="text-sm text-muted-foreground mb-2">
+							Showing {filteredAvailableBenefits.length} of {available.length}{" "}
+							benefits
+						</div>
+
 						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-							{available.map((benefit) => (
+							{filteredAvailableBenefits.map((benefit) => (
 								<Card
 									key={benefit.id}
 									className="hover:shadow-lg transition-shadow"
