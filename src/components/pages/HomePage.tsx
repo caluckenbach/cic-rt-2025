@@ -115,7 +115,7 @@ export function HomePage() {
 					<div className="space-y-4">
 						<div className="inline-flex items-center gap-3 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-navy/70 shadow-sm">
 							<Megaphone className="size-4 text-brand-azure" />
-							<span>Orbit Home</span>
+							<span>IVI Home</span>
 						</div>
 						<CardTitle className="text-3xl text-brand-navy">
 							Daily Briefing

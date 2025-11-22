@@ -1,12 +1,14 @@
-import { EyeOff, Gauge, Megaphone, ShoppingBag } from "lucide-react";
+import { Gauge, Megaphone, ShoppingBag } from "lucide-react";
 import { useMemo, useState } from "react";
 import { BenefitsMarketplace } from "@/components/BenefitsMarketplace";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { HomePage } from "@/components/pages/HomePage";
 import { PersonalPage } from "@/components/pages/PersonalPage";
-import { Button } from "@/components/ui/button";
-import "./index.css";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import artivionLogo from "../assets/Artivion_4C-scaled.png";
+import avatarImage from "../assets/avatar.jpg";
+import { Banner2 } from "./components/banner";
+import "./index.css";
 
 type PageId = "home" | "personal" | "marketplace";
 
@@ -57,6 +59,12 @@ export function App() {
 
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-brand-fog via-white to-brand-fog/70 text-left">
+			<Banner2
+				title={"Certification Audit Next Week"}
+				description={"(ISO 13485, MDSAP)"}
+				linkText={"Relevant Documents"}
+				linkUrl={""}
+			/>
 			<header className="border-b bg-gradient-to-r from-brand-teal via-brand-azure via-70% to-brand-navy text-white shadow-lg">
 				<div className="app-shell flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
 					<div className="flex flex-col gap-4">
@@ -66,9 +74,10 @@ export function App() {
 							className="h-auto w-full max-w-[220px] object-contain drop-shadow-lg filter brightness-110 contrast-125 sm:max-w-[240px] md:max-w-[280px]"
 						/>
 						<div className="flex items-center gap-4">
-							<div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-lime text-brand-navy font-semibold shadow-lg shadow-brand-navy/30">
-								TR
-							</div>
+							<Avatar className="size-20 sm:size-24">
+								<AvatarImage src={avatarImage} alt="Mona A." />
+								<AvatarFallback>MA</AvatarFallback>
+							</Avatar>
 							<div>
 								<p className="text-xs uppercase tracking-[0.35em] text-white/70">
 									IVI
