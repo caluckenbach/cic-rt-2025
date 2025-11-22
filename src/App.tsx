@@ -84,7 +84,8 @@ export function App() {
 								</p>
 								<h1 className="text-3xl font-semibold">Hallo, Mona.</h1>
 								<p className="text-sm text-white/80">
-									Powered by Artivion&apos;s people-first operating system.
+									Your hub to enroll in benefits, stay in sync with Artivion,
+									and track financial wellness.
 								</p>
 							</div>
 						</div>

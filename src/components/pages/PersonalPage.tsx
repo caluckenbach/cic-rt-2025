@@ -55,21 +55,21 @@ const chartConfig: ChartConfig = breakdownFields.reduce((acc, field, index) => {
 const recentActivity = [
 	{
 		id: "activity-1",
-		title: "Bike leasing approved",
-		detail: "€120 saved vs. retail this cycle",
-		timestamp: "Yesterday · 14:10 CET",
+		title: "Wellness pass was approved",
+		detail: "Annual fitness subsidy now available",
+		timestamp: "Today · 09:15 CET",
 	},
 	{
 		id: "activity-2",
-		title: "Pension top-up settled",
-		detail: "Employer and employee portions posted",
-		timestamp: "Mon · 09:00 CET",
+		title: "Salary for november was paid out",
+		detail: "Monthly compensation processed successfully",
+		timestamp: "Nov 30 · 00:01 CET",
 	},
 	{
 		id: "activity-3",
-		title: "Childcare credit synced",
-		detail: "Benefit marketplace automation succeeded",
-		timestamp: "Fri · 16:45 CET",
+		title: "Holiday request for dezember was granted",
+		detail: "Time-off approved by manager",
+		timestamp: "Nov 28 · 11:30 CET",
 	},
 ];
 
@@ -260,7 +260,7 @@ export function PersonalPage() {
 					) : hasChartValues ? (
 						<ChartContainer config={chartConfig}>
 							<div className="grid gap-6 lg:grid-cols-[minmax(0,320px)_1fr]">
-								<div className="[&_.recharts-pie-label-text]:fill-brand-navy mx-auto flex w-full max-w-xs justify-center">
+								<div className="mx-auto flex w-full max-w-xs justify-center">
 									<PieChart width={280} height={280}>
 										<ChartTooltip
 											content={
@@ -281,7 +281,7 @@ export function PersonalPage() {
 											strokeWidth={3}
 											labelLine={false}
 											isAnimationActive={false}
-											label={({ name }) => name}
+											label={false}
 										/>
 									</PieChart>
 								</div>

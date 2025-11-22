@@ -32,42 +32,42 @@ type NewsItem = {
 const newsItems: NewsItem[] = [
 	{
 		id: "news-1",
+		title: "Benefit marketplace pilot expands to Kennesaw, GA",
+		summary:
+			"Mobility and childcare benefits are rolling out to 40 more teammates following last month’s pilot. Marketplace slots are now live with localized pricing and the new approval SLA.",
+		channel: "Benefits Marketplace",
+		tags: ["Benefits", "Kennesaw", "Pilot", "US"],
+		publishedAt: "Yesterday",
+		author: "Benefits Ops · IVI",
+		sentiment: "update",
+		readTime: "2 min read",
+		actions: ["View marketplace"],
+	},
+	{
+		id: "news-2",
+		title: "Artivion Reports Third Quarter 2025 Financial Results",
+		summary:
+			"Third Quarter Highlights: Achieved revenue of $113.4 million in the third quarter of 2025 versus $95.8 million in the third quarter of 2024, an increase of 18% on a GAAP basis and 16% on a non-GAAP constant currency basis Net income was $6.5 million , or $0.13 per fully diluted share, and non-GAAP",
+		channel: "Financials · Company",
+		tags: ["Global", "ARTIVION", "Public"],
+		publishedAt: "6h ago",
+		author: "Lance Berry · Chief Finance Officer",
+		sentiment: "update",
+		readTime: "5 min read",
+		actions: ["Open Article"],
+	},
+	{
+		id: "news-3",
 		title: "Mobility stipend resets on March payroll",
 		summary:
 			"Finance signed off on the fresh €180 mobility stipend for everyone enrolled in the bike or car leasing track. Confirm your preferred vendor before the 15th so payroll can push it live.",
-		channel: "Total Rewards · Mobility",
+		channel: "Benefits · Mobility",
 		tags: ["Mobility", "Payroll", "Action required"],
 		publishedAt: "2h ago",
 		author: "Mara Vogel · VP People",
 		sentiment: "hot",
 		readTime: "3 min read",
 		actions: ["Confirm stipend", "Share update"],
-	},
-	{
-		id: "news-2",
-		title: "Leaders all-hands slides are ready",
-		summary:
-			"Liz posted the final deck for Thursday’s 30-minute all-hands. Includes FY24 results, the FY25 rewards roadmap.",
-		channel: "Leadership · Company",
-		tags: ["All Hands", "Deck", "Preview"],
-		publishedAt: "6h ago",
-		author: "Liz Kramer · Chief People Officer",
-		sentiment: "update",
-		readTime: "5 min read",
-		actions: ["Open deck"],
-	},
-	{
-		id: "news-3",
-		title: "Benefit marketplace pilot expands to Munich",
-		summary:
-			"Mobility and childcare benefits are rolling out to 40 more teammates following last month’s pilot. Marketplace slots are now live with localized pricing and the new approval SLA.",
-		channel: "Benefits Marketplace",
-		tags: ["Marketplace", "Munich", "Pilot"],
-		publishedAt: "Yesterday",
-		author: "Benefits Ops · Team Orbit",
-		sentiment: "reminder",
-		readTime: "4 min read",
-		actions: ["View marketplace"],
 	},
 ];
 
@@ -118,11 +118,11 @@ export function HomePage() {
 							<span>IVI Home</span>
 						</div>
 						<CardTitle className="text-3xl text-brand-navy">
-							Daily Briefing
+							Today at Artivion
 						</CardTitle>
 						<CardDescription className="text-brand-navy/80">
-							Highlights from leadership, the rewards squad, and workplace ops.
-							Stay caught up without digging through docs or Slack threads.
+							Quick hits from leadership, rewards, and workplace ops so you stay
+							caught up without digging through docs or Slack threads.
 						</CardDescription>
 					</div>
 					<div className="flex flex-col gap-4 text-sm text-brand-navy/70 lg:max-w-sm">
@@ -156,25 +156,6 @@ export function HomePage() {
 					</Button>
 				</CardContent>
 			</Card>
-
-			<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				{quickStats.map((stat) => (
-					<Card
-						key={stat.label}
-						className="border-brand-navy/10 bg-white/90 shadow-brand-navy/5"
-					>
-						<CardHeader className="space-y-1">
-							<CardDescription className="text-xs uppercase tracking-[0.3em] text-brand-navy/60">
-								{stat.label}
-							</CardDescription>
-							<CardTitle className="text-3xl text-brand-navy">
-								{stat.value}
-							</CardTitle>
-							<p className="text-sm text-brand-navy/70">{stat.delta}</p>
-						</CardHeader>
-					</Card>
-				))}
-			</div>
 
 			<section className="space-y-5">
 				<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -267,6 +248,25 @@ export function HomePage() {
 					})}
 				</div>
 			</section>
+
+			<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{quickStats.map((stat) => (
+					<Card
+						key={stat.label}
+						className="border-brand-navy/10 bg-white/90 shadow-brand-navy/5"
+					>
+						<CardHeader className="space-y-1">
+							<CardDescription className="text-xs uppercase tracking-[0.3em] text-brand-navy/60">
+								{stat.label}
+							</CardDescription>
+							<CardTitle className="text-3xl text-brand-navy">
+								{stat.value}
+							</CardTitle>
+							<p className="text-sm text-brand-navy/70">{stat.delta}</p>
+						</CardHeader>
+					</Card>
+				))}
+			</div>
 		</div>
 	);
 }
