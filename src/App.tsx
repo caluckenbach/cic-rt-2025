@@ -82,7 +82,7 @@ export function App() {
 								<p className="text-xs uppercase tracking-[0.35em] text-white/70">
 									IVI
 								</p>
-								<h1 className="text-3xl font-semibold">Hallo, Mona.</h1>
+								<h1 className="text-3xl font-semibold">Hello, Mona.</h1>
 								<p className="text-sm text-white/80">
 									Your hub to enroll in benefits, stay in sync with Artivion,
 									and track financial wellness.

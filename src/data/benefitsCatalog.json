@@ -2,14 +2,14 @@
 	{
 		"id": "benefit_retirement",
 		"category": "Finance",
-		"name": "Altersvorsorge",
+		"name": "Retirement Savings",
 		"status": "ACTIVE",
 		"fixedValue": 350
 	},
 	{
 		"id": "benefit_savings_plan",
 		"category": "Finance",
-		"name": "Vermögenswirksame Leistungen",
+		"name": "Capital-Building Benefits",
 		"status": "ACTIVE",
 		"fixedValue": 40
 	},
@@ -31,63 +31,63 @@
 	{
 		"id": "benefit_wellpass",
 		"category": "Health",
-		"name": "Firmenfitness Wellpass",
+		"name": "Corporate Fitness Wellpass",
 		"status": "ACTIVE",
 		"fixedValue": 50
 	},
 	{
 		"id": "benefit_after_work",
 		"category": "Community",
-		"name": "After Work Partys",
+		"name": "After-Work Parties",
 		"status": "AVAILABLE",
 		"fixedValue": 25
 	},
 	{
 		"id": "benefit_events",
 		"category": "Community",
-		"name": "Weihnachtsfeier und Sommerfest",
+		"name": "Holiday Party & Summer Fest",
 		"status": "AVAILABLE",
 		"fixedValue": 20
 	},
 	{
 		"id": "benefit_cafeteria",
 		"category": "Lifestyle",
-		"name": "Kantine & Getränke",
+		"name": "Cafeteria & Beverages",
 		"status": "ACTIVE",
 		"fixedValue": 150
 	},
 	{
 		"id": "benefit_eyewear",
 		"category": "Health",
-		"name": "Arbeitsplatzbrille",
+		"name": "Workstation Glasses",
 		"status": "AVAILABLE",
 		"fixedValue": 15
 	},
 	{
 		"id": "benefit_espp",
 		"category": "Finance",
-		"name": "Mitarbeiteraktienplan (ESPP)",
+		"name": "Employee Stock Purchase Plan (ESPP)",
 		"status": "AVAILABLE",
 		"fixedValue": 120
 	},
 	{
 		"id": "benefit_paid_leave",
 		"category": "Lifestyle",
-		"name": "30 Tage Urlaub",
+		"name": "30 Days of Paid Leave",
 		"status": "ACTIVE",
 		"fixedValue": 0
 	},
 	{
 		"id": "benefit_summer_care",
 		"category": "Family",
-		"name": "Sommerbetreuung für Kinder",
+		"name": "Summer Childcare",
 		"status": "AVAILABLE",
 		"fixedValue": 80
 	},
 	{
 		"id": "benefit_car_leasing",
 		"category": "Mobility",
-		"name": "Motivationsleasing PKW",
+		"name": "Motivation Car Leasing",
 		"status": "AVAILABLE",
 		"hasCalculator": true,
 		"simulationFormula": "(price * 0.015) * 0.55"
