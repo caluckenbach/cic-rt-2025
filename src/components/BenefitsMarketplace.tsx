@@ -12,6 +12,7 @@ import {
 	X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { BenefitSwipeModal } from "@/components/BenefitSwipeModal";
 import type { BenefitCatalogEntry, BenefitCategory } from "@/lib/mockData";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -80,6 +81,7 @@ export function BenefitsMarketplace() {
 	);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [selectedCategory, setSelectedCategory] = useState<string>("all");
+	const [swipeOpen, setSwipeOpen] = useState(false);
 
 	const fetchBenefitsData = useCallback(async () => {
 		setLoading(true);
@@ -337,6 +339,11 @@ export function BenefitsMarketplace() {
 		});
 	}, [available, searchQuery, selectedCategory]);
 
+	const swipeCandidates =
+		filteredAvailableBenefits.length > 0
+			? filteredAvailableBenefits
+			: available;
+
 	const categories: { value: string; label: string }[] = useMemo(() => {
 		const uniqueCategories = Array.from(
 			new Set(benefits.map((b) => b.category)),
@@ -417,54 +424,66 @@ export function BenefitsMarketplace() {
 					</TabsList>
 
 					<TabsContent value="available" className="mt-6">
-						{/* Search and Filter Controls */}
-						<div className="flex flex-col sm:flex-row gap-3 mb-6">
-							<div className="relative flex-1">
-								<Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-								<Input
-									placeholder="Search benefits by name or description..."
-									value={searchQuery}
-									onChange={(e) => setSearchQuery(e.target.value)}
-									className="pl-9"
-								/>
-								{searchQuery && (
-									<button
-										onClick={() => setSearchQuery("")}
-										className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+						<div className="mb-6 space-y-4">
+							<div className="flex flex-col gap-3 sm:flex-row">
+								<div className="relative flex-1">
+									<Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+									<Input
+										placeholder="Search benefits by name or description..."
+										value={searchQuery}
+										onChange={(e) => setSearchQuery(e.target.value)}
+										className="pl-9"
+									/>
+									{searchQuery && (
+										<button
+											onClick={() => setSearchQuery("")}
+											className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+										>
+											<X className="h-4 w-4" />
+										</button>
+									)}
+								</div>
+								<Select
+									value={selectedCategory}
+									onValueChange={setSelectedCategory}
+								>
+									<SelectTrigger className="sm:w-[180px]">
+										<SelectValue placeholder="Filter by category" />
+									</SelectTrigger>
+									<SelectContent>
+										{categories.map((category) => (
+											<SelectItem key={category.value} value={category.value}>
+												{category.label}
+											</SelectItem>
+										))}
+									</SelectContent>
+								</Select>
+								{(searchQuery || selectedCategory !== "all") && (
+									<Button
+										type="button"
+										variant="outline"
+										size="sm"
+										onClick={clearFilters}
 									>
-										<X className="h-4 w-4" />
-									</button>
+										Clear
+									</Button>
 								)}
 							</div>
-							<Select
-								value={selectedCategory}
-								onValueChange={setSelectedCategory}
-							>
-								<SelectTrigger className="sm:w-[180px]">
-									<SelectValue placeholder="Filter by category" />
-								</SelectTrigger>
-								<SelectContent>
-									{categories.map((category) => (
-										<SelectItem key={category.value} value={category.value}>
-											{category.label}
-										</SelectItem>
-									))}
-								</SelectContent>
-							</Select>
-							{(searchQuery || selectedCategory !== "all") && (
+							<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+								<div className="text-sm text-muted-foreground">
+									Showing {filteredAvailableBenefits.length} of{" "}
+									{available.length} benefits
+								</div>
 								<Button
 									type="button"
 									variant="outline"
-									size="sm"
-									onClick={clearFilters}
+									className="w-full gap-2 border-brand-navy/20 text-brand-navy sm:w-auto"
+									onClick={() => setSwipeOpen(true)}
 								>
-									Clear
+									<Heart className="size-4 text-brand-azure" />
+									Benefit Tinder
 								</Button>
-							)}
-						</div>
-						<div className="text-sm text-muted-foreground mb-2">
-							Showing {filteredAvailableBenefits.length} of {available.length}{" "}
-							benefits
+							</div>
 						</div>
 
 						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -722,6 +741,13 @@ export function BenefitsMarketplace() {
 					</TabsContent>
 				</Tabs>
 			</CardContent>
+			<BenefitSwipeModal
+				open={swipeOpen}
+				onClose={() => setSwipeOpen(false)}
+				benefits={swipeCandidates}
+				onRequest={requestBenefit}
+				requestingId={requesting}
+			/>
 		</Card>
 	);
 }
