@@ -416,14 +416,14 @@ export function BenefitsMarketplace() {
 				<Button
 					type="button"
 					variant="outline"
-					className="w-full gap-2 border-brand-navy/20 text-brand-navy sm:w-auto"
+					className="mb-4 w-full gap-2 border-brand-navy/20 text-brand-navy sm:w-auto"
 					onClick={() => setSwipeOpen(true)}
 				>
 					<Heart className="size-4 text-brand-azure" />
 					Explore Benefits
 				</Button>
-				<Tabs defaultValue="available" className="w-full bg-red-500">
-					<TabsList className="flex w-full flex-col gap-2 rounded-2xl bg-brand-fog/60 p-2 sm:grid sm:grid-cols-3 sm:gap-0">
+				<Tabs defaultValue="available" className="w-full">
+					<TabsList className="flex w-full flex-col gap-2 rounded-2xl bg-brand-fog/60 p-2 h-auto sm:h-10 sm:grid sm:grid-cols-3 sm:gap-0">
 						<TabsTrigger
 							value="available"
 							className="w-full rounded-xl text-sm font-semibold uppercase tracking-wide"
